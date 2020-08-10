@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-light" style="background-color: #85C1E9">
+        <ul class = "nav">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/temp.png" width="30" height="30" class="d-inline-block align-top" alt="thermometer">
+                Weather
+              </a>
+              
+        </ul>
+    </nav>
+
+
+<div id= "content">
+    <div id= "cards">
+
+    </div>
+    <div class="card" style="width: 18rem;" id= "last10">
+        <div class="card-header searchBar">
+            Find a city
+          </div>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-secondary" type="submit">Search</button>
+          </form>
+        <div class="card-header searchBar">
+          Previous Cities
+        </div>
+     
+        <ul class="list-group list-group-flush ">
+          <li class="list-group-item" id="search1">...</li>
+          <li class="list-group-item" id="search2">...</li>
+          <li class="list-group-item" id="search3">...</li>
+          <li class="list-group-item" id="search4">...</li>
+          <li class="list-group-item" id="search5">...</li>
+          <li class="list-group-item" id="search6">...</li>
+          <li class="list-group-item" id="search7">...</li>
+          <li class="list-group-item" id="search8">...</li>
+          <li class="list-group-item" id="search9">...</li>
+          <li class="list-group-item" id="search10">...</li>
+        </ul>
+    
+     </div>
+      <div class="jumbotron">
+        <h1 class="display-4">city</h1>
+        <p class="lead">Date: <span id= "today"></span></p>
+        <ul style="list-style-type:none;">
+            <li>Temperature: <span id= "temp0"></span></li>
+            <br>
+            <li>Humidity:<span id= "hum0"></span></li>
+            <br>
+            <li>Wind speed:<span id= "wind"></span></li>
+            <br>
+            <li>UV Index:<span id= "UVI"></span></li>
+        </ul>
+     </div>
+      <div class="card-group">
+        <div class="card border-light mb-3" style="max-width: 18rem;">
+            <div class="card-body weatherCard">
+              <h5 class="card-title" id= "date1"></h5>
+              <ul style="list-style-type:none;">
+                <li>Weather</li>
+                <li>Temperature:<span id= "temp1"></span></li>
+                <li>Humidity:<span id= "hum1"></span></li>
+               </ul>
+            </div>
+          </div>
+          <div class="card border-light mb-3" style="max-width: 18rem;">
+            <div class="card-body weatherCard">
+              <h5 class="card-title" id= "date2"></h5>
+              <ul style="list-style-type:none;">
+                <li>Weather</li>
+                <li>Temperature: <span id= "temp2"></span></li>
+                <li>Humidity: <span id= "hum2"></span></li>
+               </ul>
+            </div>
+          </div>
+          <div class="card border-light mb-3" style="max-width: 18rem;">
+            <div class="card-body weatherCard">
+              <h5 class="card-title" id= "date3"></h5>
+              <ul style="list-style-type:none;">
+                <li>Weather</li>
+                <li>Temperature: <span id= "temp3"></span></li>
+                <li>Humidity: <span id= "hum3"></span></li>
+               </ul>
+            </div>
+          </div>
+          <div class="card border-light mb-3" style="max-width: 18rem;">
+            <div class="card-body weatherCard">
+              <h5 class="card-title" id= "date4"></h5>
+              <ul style="list-style-type:none;">
+                <li>Weather</li>
+                <li>Temperature: <span id= "temp4"></span></li>
+                <li>Humidity: <span id= "hum4"></span></li>
+               </ul>
+            </div>
+          </div>
+          <div class="card border-light mb-3" style="max-width: 18rem;">
+            <div class="card-body weatherCard">
+              <h5 class="card-title" id= "date5"></h5>
+              <ul style="list-style-type:none;">
+                <li>Weather</li>
+                <li>Temperature: <span id= "temp5"></span></li>
+                <li>Humidity: <span id= "temp5"></span></li>
+               </ul>
+            </div>
+            
+          </div>
+          <footer class="footer">
+            <div class="container" id = "bottom">
+              
+            </div>
+          </footer>
+        
+          
+</div>
+<script src="./script.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"> </script>
+
+<script>
+
+    // displays time and date for weather display cards   
+function displayTime() {
+    var dateAndTime = moment().format('dddd') + " " + moment().format("MMM Do YYYY") + ", " + moment().format('HH:mm:ss');  
+    $('#today').html(dateAndTime);
+      setTimeout(displayTime, 1000);
+    }
+    var day1 = moment().add(1, 'days').format("L");
+    $('#date1').html(day1);
+      setTimeout(displayTime, 1000);
+    var day2 = moment().add(2, 'days').format("L");
+    $('#date2').html(day2);
+      setTimeout(displayTime, 1000);
+      var day3 = moment().add(3, 'days').format("L");
+    $('#date3').html(day3);
+      setTimeout(displayTime, 1000);
+      var day4 = moment().add(4, 'days').format("L");
+    $('#date4').html(day4);
+      setTimeout(displayTime, 1000);
+      var day5 = moment().add(5, 'days').format("L");
+    $('#date5').html(day5);
+      setTimeout(displayTime, 1000);
+      
+    
+    $(document).ready(function() {
+       displayTime();
+   
+  });
+
+  
+  
+</script>     
+  <script src="./script.js"></script> 
+
+</body>
+</html>
+
