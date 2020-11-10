@@ -1,0 +1,23 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #ECDFCD !important;
+}
+
+.btn {
+  background-color: #497B9C;
+  color: #ffffff
+}
+
+.bg-secondary{
+  background-color: #E8BF84 !important;
+}
+
+.bg-primary {
+  background-color: #497B9C !important;
+  border: 3px solid #ffffff ;
+}
